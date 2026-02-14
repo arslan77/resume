@@ -1,0 +1,74 @@
+name: Build Resume PDFs
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'templates/**/*.tex'
+      - 'templates/**/*.cls'
+      - 'Makefile'
+      - '.github/workflows/build-resume.yml'
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Build Awesome-CV Resume
+      uses: xu-cheng/latex-action@v3
+      with:
+        root_file: resume.tex
+        working_directory: templates/awesome-cv
+        args: -xelatex -interaction=nonstopmode
+
+    - name: Build Awesome-CV CV
+      uses: xu-cheng/latex-action@v3
+      with:
+        root_file: cv.tex
+        working_directory: templates/awesome-cv
+        args: -xelatex -interaction=nonstopmode
+
+    - name: Build Deedy Resume
+      uses: xu-cheng/latex-action@v3
+      with:
+        root_file: resume.tex
+        working_directory: templates/deedy
+        args: -xelatex -interaction=nonstopmode
+
+    - name: Create output directory
+      run: mkdir -p output
+
+    - name: Copy PDFs to output directory
+      run: |
+        cp templates/awesome-cv/resume.pdf output/resume-awesome-cv.pdf
+        cp templates/awesome-cv/cv.pdf output/cv-awesome-cv.pdf
+        cp templates/deedy/resume.pdf output/resume-deedy.pdf
+
+    - name: Upload Resume Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: resume-pdfs
+        path: output/*.pdf
+        retention-days: 90
+
+    - name: Upload to Release (on tags)
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v2
+      with:
+        files: output/*.pdf
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Commit and push PDFs (optional - uncomment if you want PDFs in repo)
+      # Uncomment the lines below if you want to commit the generated PDFs back to the repository
+      # run: |
+      #   git config --local user.email "github-actions[bot]@users.noreply.github.com"
+      #   git config --local user.name "github-actions[bot]"
+      #   git add output/*.pdf
+      #   git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-build: Update resume PDFs [skip ci]" && git push)
