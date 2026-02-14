@@ -8,12 +8,21 @@ This repository contains my professional resume and CV with support for multiple
 
 ## 📄 Download Resume
 
-**Latest Version**: [Download Resume PDFs](https://github.com/arslan77/resume/releases/latest)
+### Quick Download (Latest Version)
 
-Available formats:
-- **Resume** (2 pages) - Awesome-CV template - Concise version for job applications
-- **CV** (4 pages) - Awesome-CV template - Comprehensive version with detailed experience
-- **Resume** (1 page) - Deedy template - Modern, colorful single-page design
+<div align="center">
+
+| Format | Template | Pages | Download |
+|--------|----------|-------|----------|
+| **Resume** | Awesome-CV | 2 pages | [📥 Download PDF](https://github.com/arslan77/resume/releases/latest/download/Resume-Arslan-Arshad-Latest.pdf) |
+| **CV** | Awesome-CV | 4 pages | [📥 Download PDF](https://github.com/arslan77/resume/releases/latest/download/CV-Arslan-Arshad-Latest.pdf) |
+| **Resume** | Deedy | 1 page | [📥 Download PDF](https://github.com/arslan77/resume/releases/latest/download/Resume-Arslan-Arshad-Deedy-Latest.pdf) |
+
+**[📋 View All Releases](https://github.com/arslan77/resume/releases)** | **[⚡ Build Status](https://github.com/arslan77/resume/actions)**
+
+</div>
+
+> **Note**: Download links will work after you make the repository public and create your first release (v1.0)
 
 ## Directory Structure
 

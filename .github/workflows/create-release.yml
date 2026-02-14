@@ -49,9 +49,14 @@ jobs:
 
     - name: Rename PDFs with version
       run: |
+        # Versioned files
         cp templates/awesome-cv/resume.pdf output/Resume-Arslan-Arshad-${{ inputs.version }}.pdf
         cp templates/awesome-cv/cv.pdf output/CV-Arslan-Arshad-${{ inputs.version }}.pdf
         cp templates/deedy/resume.pdf output/Resume-Arslan-Arshad-Deedy-${{ inputs.version }}.pdf
+        # Non-versioned files for /latest/download links
+        cp templates/awesome-cv/resume.pdf output/Resume-Arslan-Arshad-Latest.pdf
+        cp templates/awesome-cv/cv.pdf output/CV-Arslan-Arshad-Latest.pdf
+        cp templates/deedy/resume.pdf output/Resume-Arslan-Arshad-Deedy-Latest.pdf
 
     - name: Create Release
       uses: softprops/action-gh-release@v2
@@ -67,6 +72,11 @@ jobs:
           - `Resume-Arslan-Arshad-${{ inputs.version }}.pdf` - 2-page resume (Awesome-CV template)
           - `CV-Arslan-Arshad-${{ inputs.version }}.pdf` - 4-page detailed CV (Awesome-CV template)
           - `Resume-Arslan-Arshad-Deedy-${{ inputs.version }}.pdf` - 1-page modern resume (Deedy template)
+
+          📥 **Latest Download Links** (always point to newest release):
+          - [Resume (2-page)](https://github.com/arslan77/resume/releases/latest/download/Resume-Arslan-Arshad-Latest.pdf)
+          - [CV (4-page)](https://github.com/arslan77/resume/releases/latest/download/CV-Arslan-Arshad-Latest.pdf)
+          - [Resume Deedy (1-page)](https://github.com/arslan77/resume/releases/latest/download/Resume-Arslan-Arshad-Deedy-Latest.pdf)
 
           ### About
           - **Name**: M Arslan Arshad
