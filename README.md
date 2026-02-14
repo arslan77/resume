@@ -4,7 +4,14 @@
 [![Build Status](https://img.shields.io/github/actions/workflow/status/arslan77/resume/build-resume.yml?branch=main)](https://github.com/arslan77/resume/actions)
 [![License](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
-This repository contains my professional resume and CV with support for multiple LaTeX templates, automated builds via GitHub Actions, and version management.
+Professional resume and CV for **M Arslan Arshad**, Senior Software Engineer with 8+ years of experience in backend development, microservices architecture, and distributed systems. Features multiple LaTeX templates, automated builds via GitHub Actions, and version management.
+
+## 👨‍💻 About
+
+- **Current Role**: Senior Software Engineer @ HungerStation (Delivery Hero)
+- **Experience**: 8+ years in Go, Java, PHP, Ruby, Python
+- **Education**: MS in Computer Science (IIS) - NUST SEECS | BS in Computer Science - NFC IET
+- **Research**: Published in Journal of Economy and Technology (2023)
 
 ## 📄 Download Resume
 
@@ -93,29 +100,36 @@ All generated PDFs are placed in the `output/` directory:
 
 ## GitHub Actions - Automated Builds
 
-This repository includes GitHub Actions workflows for automatic resume building:
+This repository includes two GitHub Actions workflows:
 
-### Automatic Builds on Push
-- Triggers automatically when you push changes to `.tex` files
-- Builds all resume PDFs in the cloud
-- PDFs available as downloadable artifacts (90-day retention)
-- **100% FREE** for public repositories
+### 1. Automatic Builds on Push (`build-resume.yml`)
+- ✅ Triggers automatically when you push changes to `.tex` or `.cls` files
+- ✅ Builds all 3 resume PDFs in the cloud using Docker
+- ✅ PDFs available as downloadable artifacts (90-day retention)
+- ✅ **100% FREE** for public repositories
 
-### Manual Release Creation
+### 2. Manual Release Creation (`create-release.yml`)
 Create professional versioned releases with your resume PDFs:
 
-```bash
-# Via GitHub UI:
-# 1. Go to Actions tab
-# 2. Select "Create Resume Release"
-# 3. Click "Run workflow"
-# 4. Enter version (e.g., v1.0) and release name
-# 5. Download PDFs from Releases section
-```
+**Via GitHub UI:**
+1. Go to **Actions** tab
+2. Select **"Create Resume Release"**
+3. Click **"Run workflow"**
+4. Enter version (e.g., `v1.1`) and release name
+5. Download PDFs from **Releases** section
 
-**See detailed guide**: [HOW_TO_CREATE_RELEASE.md](HOW_TO_CREATE_RELEASE.md)
+**What gets created:**
+- 6 PDF files total:
+  - `Resume-Arslan-Arshad-v1.1.pdf` (Awesome-CV Resume - 2 pages)
+  - `CV-Arslan-Arshad-v1.1.pdf` (Awesome-CV CV - 4 pages)
+  - `Resume-Arslan-Arshad-Deedy-v1.1.pdf` (Deedy Resume - 1 page)
+  - `Resume-Arslan-Arshad-Latest.pdf` (Always points to latest resume)
+  - `CV-Arslan-Arshad-Latest.pdf` (Always points to latest CV)
+  - `Resume-Arslan-Arshad-Deedy-Latest.pdf` (Always points to latest Deedy)
 
-**GitHub Actions guide**: [GITHUB_ACTIONS_GUIDE.md](GITHUB_ACTIONS_GUIDE.md)
+**See detailed guides:**
+- [HOW_TO_CREATE_RELEASE.md](HOW_TO_CREATE_RELEASE.md)
+- [GITHUB_ACTIONS_GUIDE.md](GITHUB_ACTIONS_GUIDE.md)
 
 ## Adding a New Template
 
@@ -175,12 +189,17 @@ Edit in the main `.tex` files:
 - `templates/awesome-cv/resume.tex` - lines 57-64
 - `templates/awesome-cv/cv.tex` - lines 55-62
 
+## 🔗 Related Projects
+
+- **GitHub Profile**: [github.com/arslan77](https://github.com/arslan77) - Enhanced profile with stats and badges
+- **Portfolio Website**: [arslan77.github.io](https://arslan77.github.io) - Interactive portfolio with dark/light themes
+
 ## Tips
 
 1. **Keep content in sync**: When updating experience, update both resume and CV sections
 2. **Template-specific syntax**: Different templates have different LaTeX syntax - content may need adaptation
 3. **Test locally**: Always test builds locally before sharing
-4. **Version control**: Consider using git to track changes
+4. **Use CLAUDE.md**: Contains personal details and formatting rules for AI assistance
 
 ## Troubleshooting
 
