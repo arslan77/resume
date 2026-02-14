@@ -1,0 +1,88 @@
+name: Create Resume Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g., v1.0, v2024.02, etc.)'
+        required: true
+        type: string
+      release_name:
+        description: 'Release name (e.g., "February 2024 Update")'
+        required: false
+        type: string
+        default: 'Resume Release'
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Build Awesome-CV Resume
+      uses: xu-cheng/latex-action@v3
+      with:
+        root_file: resume.tex
+        working_directory: templates/awesome-cv
+        args: -xelatex -interaction=nonstopmode
+
+    - name: Build Awesome-CV CV
+      uses: xu-cheng/latex-action@v3
+      with:
+        root_file: cv.tex
+        working_directory: templates/awesome-cv
+        args: -xelatex -interaction=nonstopmode
+
+    - name: Build Deedy Resume
+      uses: xu-cheng/latex-action@v3
+      with:
+        root_file: resume.tex
+        working_directory: templates/deedy
+        args: -xelatex -interaction=nonstopmode
+
+    - name: Create output directory
+      run: mkdir -p output
+
+    - name: Rename PDFs with version
+      run: |
+        cp templates/awesome-cv/resume.pdf output/Resume-Arslan-Arshad-${{ inputs.version }}.pdf
+        cp templates/awesome-cv/cv.pdf output/CV-Arslan-Arshad-${{ inputs.version }}.pdf
+        cp templates/deedy/resume.pdf output/Resume-Arslan-Arshad-Deedy-${{ inputs.version }}.pdf
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: ${{ inputs.version }}
+        name: ${{ inputs.release_name }} (${{ inputs.version }})
+        body: |
+          ## Resume Release ${{ inputs.version }}
+
+          This release contains the following resume documents:
+
+          📄 **Professional Documents**:
+          - `Resume-Arslan-Arshad-${{ inputs.version }}.pdf` - 2-page resume (Awesome-CV template)
+          - `CV-Arslan-Arshad-${{ inputs.version }}.pdf` - 4-page detailed CV (Awesome-CV template)
+          - `Resume-Arslan-Arshad-Deedy-${{ inputs.version }}.pdf` - 1-page modern resume (Deedy template)
+
+          ### About
+          - **Name**: M Arslan Arshad
+          - **Role**: Senior Software Engineer (Backend)
+          - **Location**: Dubai, UAE
+          - **Experience**: 8+ years in backend development, microservices, and distributed systems
+
+          ### Templates Used
+          - [Awesome-CV](https://github.com/posquit0/Awesome-CV) - Professional, clean design
+          - [Deedy Resume](https://github.com/deedy/Deedy-Resume) - Modern, colorful single-page
+
+          ---
+          *Generated automatically via GitHub Actions*
+        files: |
+          output/Resume-Arslan-Arshad-${{ inputs.version }}.pdf
+          output/CV-Arslan-Arshad-${{ inputs.version }}.pdf
+          output/Resume-Arslan-Arshad-Deedy-${{ inputs.version }}.pdf
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

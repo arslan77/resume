@@ -65,10 +65,12 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Commit and push PDFs (optional - uncomment if you want PDFs in repo)
-      # Uncomment the lines below if you want to commit the generated PDFs back to the repository
-      # run: |
-      #   git config --local user.email "github-actions[bot]@users.noreply.github.com"
-      #   git config --local user.name "github-actions[bot]"
-      #   git add output/*.pdf
-      #   git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-build: Update resume PDFs [skip ci]" && git push)
+    # Optional: Commit and push PDFs back to repo
+    # Uncomment the step below if you want to commit the generated PDFs back to the repository
+    #
+    # - name: Commit and push PDFs
+    #   run: |
+    #     git config --local user.email "github-actions[bot]@users.noreply.github.com"
+    #     git config --local user.name "github-actions[bot]"
+    #     git add output/*.pdf
+    #     git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-build: Update resume PDFs [skip ci]" && git push)
