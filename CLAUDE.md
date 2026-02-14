@@ -58,12 +58,12 @@ Resume/
 - **Resume**: 2-page concise version for job applications
   - File: `templates/awesome-cv/resume.tex`
   - Output: `output/resume-awesome-cv.pdf`
-  - Sections: Skills, Experience (3 bullets/job), Education
+  - Sections: Skills, Experience (3-4 bullets/job), Education, Publications
 
-- **CV**: 4-page detailed version for comprehensive overview
+- **CV**: 6-page detailed version for comprehensive overview
   - File: `templates/awesome-cv/cv.tex`
   - Output: `output/cv-awesome-cv.pdf`
-  - Sections: Summary, Skills, Experience (7-11 bullets/job), Education, AI Tools, Projects
+  - Sections: Summary, Skills, Experience (11-13 bullets/job), Education, Publications, AI Tools, Projects
 
 ### 2. Deedy Resume
 - **Single-page**: Modern, colorful two-column layout

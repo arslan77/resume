@@ -22,7 +22,7 @@ Professional resume and CV for **M Arslan Arshad**, Senior Software Engineer wit
 | Format | Template | Pages | Download |
 |--------|----------|-------|----------|
 | **Resume** | Awesome-CV | 2 pages | [📥 Download PDF](https://github.com/arslan77/resume/releases/latest/download/Resume-Arslan-Arshad-Latest.pdf) |
-| **CV** | Awesome-CV | 4 pages | [📥 Download PDF](https://github.com/arslan77/resume/releases/latest/download/CV-Arslan-Arshad-Latest.pdf) |
+| **CV** | Awesome-CV | 6 pages | [📥 Download PDF](https://github.com/arslan77/resume/releases/latest/download/CV-Arslan-Arshad-Latest.pdf) |
 | **Resume** | Deedy | 1 page | [📥 Download PDF](https://github.com/arslan77/resume/releases/latest/download/Resume-Arslan-Arshad-Deedy-Latest.pdf) |
 
 **[📋 View All Releases](https://github.com/arslan77/resume/releases)** | **[⚡ Build Status](https://github.com/arslan77/resume/actions)**
@@ -39,7 +39,7 @@ Resume/
 │   ├── awesome-cv/              # Awesome-CV template (current)
 │   │   ├── awesome-cv.cls      # Template class file
 │   │   ├── resume.tex          # Resume main file (2 pages)
-│   │   ├── cv.tex              # CV main file (4 pages detailed)
+│   │   ├── cv.tex              # CV main file (6 pages detailed)
 │   │   ├── Makefile            # Template-specific Makefile
 │   │   └── sections/           # Content sections
 │   │       ├── resume/         # Resume sections (concise)
@@ -79,7 +79,7 @@ make
 # Build specific template
 make awesome-cv          # Both resume and CV
 make awesome-cv-resume   # Resume only (2 pages)
-make awesome-cv-cv       # CV only (4 pages)
+make awesome-cv-cv       # CV only (6 pages)
 make deedy               # Deedy resume (1 page)
 
 # Clean up
@@ -95,7 +95,7 @@ make help
 
 All generated PDFs are placed in the `output/` directory:
 - `output/resume-awesome-cv.pdf` - 2-page concise resume
-- `output/cv-awesome-cv.pdf` - 4-page detailed CV
+- `output/cv-awesome-cv.pdf` - 6-page detailed CV
 - `output/resume-deedy.pdf` - 1-page modern resume
 
 ## GitHub Actions - Automated Builds
@@ -121,7 +121,7 @@ Create professional versioned releases with your resume PDFs:
 **What gets created:**
 - 6 PDF files total:
   - `Resume-Arslan-Arshad-v1.1.pdf` (Awesome-CV Resume - 2 pages)
-  - `CV-Arslan-Arshad-v1.1.pdf` (Awesome-CV CV - 4 pages)
+  - `CV-Arslan-Arshad-v1.1.pdf` (Awesome-CV CV - 6 pages)
   - `Resume-Arslan-Arshad-Deedy-v1.1.pdf` (Deedy Resume - 1 page)
   - `Resume-Arslan-Arshad-Latest.pdf` (Always points to latest resume)
   - `CV-Arslan-Arshad-Latest.pdf` (Always points to latest CV)
@@ -161,7 +161,7 @@ To add a new template (e.g., Deedy):
 - **Features**: Professional, clean design with customizable colors
 - **Outputs**:
   - Resume: 2-page concise version
-  - CV: 4-page detailed version with projects and AI tools
+  - CV: 6-page detailed version with publications, projects and AI tools
 
 ### Deedy Resume
 - **Source**: https://github.com/deedy/Deedy-Resume
@@ -178,7 +178,7 @@ To add a new template (e.g., Deedy):
 - Each job limited to 3 bullet points
 - Focus on impact and results
 
-**CV (detailed, 4 pages)**:
+**CV (detailed, 6 pages)**:
 - Edit files in `templates/awesome-cv/sections/cv/`
 - More comprehensive descriptions (7-11 bullets per job)
 - Includes side projects and AI tools section
