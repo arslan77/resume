@@ -9,9 +9,9 @@ This repository contains M Arslan Arshad's professional resume and CV with multi
 - **Location**: Dubai, UAE
 - **Experience**: 8+ years in backend development, microservices, distributed systems
 - **Education**:
-  - MS in Computer Science (CGPA: 3.35/4.0) - NUST SEECS, Islamabad (2017-2020)
+  - MS in Computer Science (CGPA: 3.35/4.0) - NUST SEECS, Islamabad (2018-2022)
     - Specialization: Intelligent Information Systems (IIS)
-  - BS in Computer Science (CGPA: 3.67/4.0) - NFC IET, Multan (2013-2017)
+  - BS in Computer Science (CGPA: 3.67/4.0) - NFC IET, Multan (2012-2016)
 
 ## 📁 Repository Structure
 
