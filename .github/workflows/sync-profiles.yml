@@ -1,0 +1,76 @@
+name: Sync Resume to Profile & Portfolio
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'templates/awesome-cv/sections/**'
+      - 'templates/awesome-cv/resume.tex'
+      - 'templates/awesome-cv/cv.tex'
+  workflow_dispatch:
+
+jobs:
+  sync-profiles:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout resume repo
+      uses: actions/checkout@v4
+
+    - name: Extract resume data
+      id: extract
+      run: |
+        # Extract current company from experience
+        CURRENT_COMPANY=$(grep -A 1 "Oct. 2023 - Present" templates/awesome-cv/sections/resume/experience.tex | grep "{" | head -1 | sed 's/.*{\(.*\)}.*/\1/')
+        echo "current_company=$CURRENT_COMPANY" >> $GITHUB_OUTPUT
+
+        # Extract years of experience (you can update this manually or calculate)
+        YEARS_EXP="8"
+        echo "years_exp=$YEARS_EXP" >> $GITHUB_OUTPUT
+
+    - name: Checkout profile README repo
+      uses: actions/checkout@v4
+      with:
+        repository: arslan77/arslan77
+        token: ${{ secrets.CROSS_REPO_TOKEN }}
+        path: profile-repo
+
+    - name: Update profile README
+      run: |
+        cd profile-repo
+        # Update the current company in README
+        sed -i "s/Currently.*HungerStation.*/Currently at **${{ steps.extract.outputs.current_company }}**/g" README.md || true
+
+        # Commit if there are changes
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add README.md
+        git diff --quiet && git diff --staged --quiet || (git commit -m "🔄 Auto-sync: Update from resume repo" && git push)
+
+    - name: Checkout portfolio website repo
+      uses: actions/checkout@v4
+      with:
+        repository: arslan77/arslan77.github.io
+        token: ${{ secrets.CROSS_REPO_TOKEN }}
+        path: portfolio-repo
+
+    - name: Update portfolio website
+      run: |
+        cd portfolio-repo
+        # Update years of experience in index.html
+        sed -i "s/with over <strong>[0-9]\+ years<\/strong>/with over <strong>${{ steps.extract.outputs.years_exp }}+ years<\/strong>/g" index.html || true
+
+        # Update current company
+        sed -i "s/Currently leading.*at .*/Currently leading Integration Squad at ${{ steps.extract.outputs.current_company }}/g" index.html || true
+
+        # Commit if there are changes
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add index.html
+        git diff --quiet && git diff --staged --quiet || (git commit -m "🔄 Auto-sync: Update from resume repo" && git push)
+
+    - name: Summary
+      run: |
+        echo "✅ Profile and portfolio synced with latest resume data!"
+        echo "📊 Current Company: ${{ steps.extract.outputs.current_company }}"
+        echo "⏱️ Years of Experience: ${{ steps.extract.outputs.years_exp }}"
