@@ -94,6 +94,9 @@ jobs:
           output/Resume-Arslan-Arshad-${{ inputs.version }}.pdf
           output/CV-Arslan-Arshad-${{ inputs.version }}.pdf
           output/Resume-Arslan-Arshad-Deedy-${{ inputs.version }}.pdf
+          output/Resume-Arslan-Arshad-Latest.pdf
+          output/CV-Arslan-Arshad-Latest.pdf
+          output/Resume-Arslan-Arshad-Deedy-Latest.pdf
         draft: false
         prerelease: false
       env:
