@@ -24,11 +24,14 @@ Resume/
 │   │           ├── education.tex
 │   │           ├── aitools.tex
 │   │           └── projects.tex
-│   └── deedy/                   # Deedy template (to be added)
-│       └── README.md            # Instructions for setting up
+│   └── deedy/                   # Deedy template
+│       ├── deedy-resume-openfont.cls
+│       ├── resume.tex
+│       └── fonts/               # Lato and Raleway fonts
 ├── output/                      # Generated PDFs
 │   ├── resume-awesome-cv.pdf
-│   └── cv-awesome-cv.pdf
+│   ├── cv-awesome-cv.pdf
+│   └── resume-deedy.pdf
 ├── Makefile                     # Master Makefile for all templates
 └── README.md                    # This file
 ```
@@ -41,13 +44,14 @@ Resume/
 ### Quick Start
 
 ```bash
-# Build all templates (currently just Awesome-CV)
+# Build all templates
 make
 
 # Build specific template
 make awesome-cv          # Both resume and CV
 make awesome-cv-resume   # Resume only (2 pages)
 make awesome-cv-cv       # CV only (4 pages)
+make deedy               # Deedy resume (1 page)
 
 # Clean up
 make clean      # Remove auxiliary files
@@ -63,6 +67,33 @@ make help
 All generated PDFs are placed in the `output/` directory:
 - `output/resume-awesome-cv.pdf` - 2-page concise resume
 - `output/cv-awesome-cv.pdf` - 4-page detailed CV
+- `output/resume-deedy.pdf` - 1-page modern resume
+
+## GitHub Actions - Automated Builds
+
+This repository includes GitHub Actions workflows for automatic resume building:
+
+### Automatic Builds on Push
+- Triggers automatically when you push changes to `.tex` files
+- Builds all resume PDFs in the cloud
+- PDFs available as downloadable artifacts (90-day retention)
+- **100% FREE** for public repositories
+
+### Manual Release Creation
+Create professional versioned releases with your resume PDFs:
+
+```bash
+# Via GitHub UI:
+# 1. Go to Actions tab
+# 2. Select "Create Resume Release"
+# 3. Click "Run workflow"
+# 4. Enter version (e.g., v1.0) and release name
+# 5. Download PDFs from Releases section
+```
+
+**See detailed guide**: [HOW_TO_CREATE_RELEASE.md](HOW_TO_CREATE_RELEASE.md)
+
+**GitHub Actions guide**: [GITHUB_ACTIONS_GUIDE.md](GITHUB_ACTIONS_GUIDE.md)
 
 ## Adding a New Template
 
@@ -96,10 +127,11 @@ To add a new template (e.g., Deedy):
   - Resume: 2-page concise version
   - CV: 4-page detailed version with projects and AI tools
 
-### Deedy (Planned)
+### Deedy Resume
 - **Source**: https://github.com/deedy/Deedy-Resume
-- **Status**: Not yet implemented
-- **To implement**: Download template and adapt content sections
+- **Status**: ✅ Implemented
+- **Features**: Modern, colorful single-page design with two-column layout
+- **Output**: `output/resume-deedy.pdf` (1 page)
 
 ## Editing Content
 
