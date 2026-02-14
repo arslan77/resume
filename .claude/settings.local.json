@@ -12,7 +12,13 @@
       "Bash(git remote add:*)",
       "Bash(git branch:*)",
       "Bash(git push:*)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(alias make='mingw32-make')",
+      "Bash(~/.bashrc)",
+      "Bash(~/.bash_profile)",
+      "Bash(source:*)",
+      "Bash(chmod:*)",
+      "Bash(mingw32-make:*)"
     ]
   }
 }

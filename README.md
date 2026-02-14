@@ -1,6 +1,19 @@
 # Resume - Multi-Template Support
 
-This repository contains my professional resume and CV with support for multiple LaTeX templates.
+[![Latest Release](https://img.shields.io/github/v/release/arslan77/resume?label=Latest%20Release)](https://github.com/arslan77/resume/releases/latest)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/arslan77/resume/build-resume.yml?branch=main)](https://github.com/arslan77/resume/actions)
+[![License](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
+
+This repository contains my professional resume and CV with support for multiple LaTeX templates, automated builds via GitHub Actions, and version management.
+
+## 📄 Download Resume
+
+**Latest Version**: [Download Resume PDFs](https://github.com/arslan77/resume/releases/latest)
+
+Available formats:
+- **Resume** (2 pages) - Awesome-CV template - Concise version for job applications
+- **CV** (4 pages) - Awesome-CV template - Comprehensive version with detailed experience
+- **Resume** (1 page) - Deedy template - Modern, colorful single-page design
 
 ## Directory Structure
 
